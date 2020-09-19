@@ -98,8 +98,8 @@ runV2rayContainer(){
 	  huzhihao/v2ray_docker:0.0.1a \
 	  $domain \
 	  $name \
-	  $uuid \ 
-	  && sleep 3s \
+	  $uuid 
+	  && sleep 3s 
 	  && sudo docker logs v2ray
 	sleep 3s
 	green "容器启动完成";
