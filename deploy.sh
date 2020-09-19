@@ -88,7 +88,19 @@ runV2rayContainer(){
 	clear
 	yellow "开始启动容器";
 	sudo docker rm -f v2ray
-	sudo docker run -d --name v2ray -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy --restart=always huzhihao/v2ray_docker:0.0.1a $domain $name $uuid && sleep 3s && sudo docker logs  v2ray
+	#sudo docker run -d --name v2ray -p 443:443 -p 80:80 -v $HOME/.caddy:/root/.caddy --restart=always huzhihao/v2ray_docker:0.0.1a $domain $name $uuid && sleep 3s && sudo docker logs  v2ray
+	sudo docker run -d --name v2ray \
+	  -p 443:443 \
+	  -p 80:80 \
+	  -v $HOME/.caddy:/root/.caddy \
+	  -v /etc/v2ray:/etc/v2ray \
+	  --restart=always \
+	  huzhihao/v2ray_docker:0.0.1a \
+	  $domain \
+	  $name \
+	  $uuid \ 
+	  && sleep 3s \
+	  && sudo docker logs v2ray
 	sleep 3s
 	green "容器启动完成";
 	sleep 3s
