@@ -93,7 +93,7 @@ runV2rayContainer(){
 	  -p 443:443 \
 	  -p 80:80 \
 	  -v $HOME/.caddy:/root/.caddy \
-	  -v /root/v2ray/etc/v2ray:/etc/v2ray \
+	  -v /etc/v2ray:/etc/v2ray \
 	  --restart=always \
 	  huzhihao/v2ray_docker:0.0.1a \
 	  $domain \
