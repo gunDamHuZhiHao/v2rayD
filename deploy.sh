@@ -61,6 +61,7 @@ installDocker(){
 	yum update -y
     	yum install yum-utils device-mapper-persistent-data lvm2 -y
     	yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+	##yum-config-manager  --add-repo  http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo #阿里云yum源
     	yum install conntrack-tools -y
     	##yum install docker-ce-18.09.1 -y
 	yum install --allowerasing docker-ce -y
