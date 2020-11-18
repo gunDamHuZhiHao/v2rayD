@@ -56,8 +56,14 @@ function yellow(){
 installDocker(){
 	clear
 	yellow "开始安装docker服务";
-	curl -fsSL https://get.docker.com -o get-docker.sh  && \
-	bash get-docker.sh
+	##curl -fsSL https://get.docker.com -o get-docker.sh  && \
+	##bash get-docker.sh
+	yum update -y
+    	yum install yum-utils device-mapper-persistent-data lvm2 -y
+    	yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    	yum install conntrack-tools -y
+    	##yum install docker-ce-18.09.1 -y
+	yum install --allowerasing docker-ce -y
 	sleep 3s
 	green "安装docker服务结束";
 	sleep 3s
