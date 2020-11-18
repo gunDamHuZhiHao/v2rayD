@@ -67,7 +67,7 @@ installDocker(){
 startDocker(){
 	clear
 	yellow "开始启动docker";
-	sudo service docker start
+	systemctl start docker.service
 	sleep 3s
 	green "启动docker完成";
 	sleep 3s
@@ -77,7 +77,7 @@ startDocker(){
 autoDocker(){
 	clear
 	yellow "设置docker开机自启";
-	systemctl enable docker
+	systemctl enable docker.service
 	sleep 3s
 	green "设置docker开机自启完成";
 	sleep 3s
